@@ -1,0 +1,288 @@
+/* Root Variables */
+:root {
+  --unit-style-one_page: Y;
+  --unit-style-footer_unused: N;
+  --unit-style-brand_color: #3182f6;
+  --unit-style-badge_color: #000;
+  --unit-style-option_badge_color: #3182f6;
+  --unit-style-font_family: notosanskr;
+  --unit-style-font_family_en: none;
+  --unit-style-h_font_family: Pretendard;
+  --unit-style-h_font_family_en: none;
+  --unit-style-body_color: #fff;
+  --unit-style-body_size: 16;
+  --unit-style-body_line_height: 1.6;
+  --unit-style-body_italic: N;
+  --unit-style-body_use_bold: normal;
+  --unit-style-body_use_title_bold: bold;
+  --unit-style-background_color: #000;
+  --unit-style-max_width: 1180;
+  --unit-style-grid_margin_top_bottom: 10;
+  --unit-style-grid_margin_left_right: 7;
+  --unit-style-split_border_width: 1;
+  --unit-style-split_border_style: solid;
+  --unit-style-split_border_color: rgba(0, 0, 0, 0.05);
+  --unit-style-button_font_size: 14;
+  --unit-style-button_letter_spacing: 1;
+  --unit-style-button_radius: 2;
+  --unit-style-button_margin: 24;
+  --unit-style-button_font_color: #212121;
+  --unit-style-button_background_color: rgba(238, 238, 238, 0);
+  --unit-style-button_border_color: rgba(0, 0, 0, 0.8);
+  --unit-style-button_hover_font_color: rgba(33, 33, 33, 0.7);
+  --unit-style-button_hover_background_color: rgba(211, 211, 211, 0);
+  --unit-style-button_hover_border_color: rgba(0, 0, 0, 0.6);
+  --unit-style-button_border_width: 1;
+  --unit-style-button_hover_border_width: 1;
+  --unit-style-button_sb_font_color: #ffffff;
+  --unit-style-button_sb_background_color: #000000;
+  --unit-style-button_sb_border_width: 0;
+  --unit-style-button_sb_border_color: #00d255;
+  --unit-style-button_sb_hover_font_color: #ffffff;
+  --unit-style-button_sb_hover_background_color: #262626;
+  --unit-style-button_sb_hover_border_width: 0;
+  --unit-style-button_sb_hover_border_color: #00d255;
+  --unit-style-button_sb_use_set: Y;
+  --unit-style--font-family: "Noto Sans Korean", "Apple SD Gothic Neo",
+    "Malgun Gothic", "Nanum Gothic", "Noto Sans", sans-serif;
+}
+
+/* Base Styles */
+*::selection {
+  background-color: #3182f6;
+  color: #fff;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.doz_sys {
+  font-family: "Noto Sans Korean", "Apple SD Gothic Neo", "Malgun Gothic",
+    "Nanum Gothic", "Noto Sans", sans-serif;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #000;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+.doz_sys h1,
+.doz_sys h2,
+.doz_sys h3,
+.doz_sys h4 {
+  font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic",
+    "Nanum Gothic", "Noto Sans", sans-serif;
+  font-weight: bold;
+}
+
+.doz_sys h1 {
+  font-size: 4em;
+  line-height: 1.2;
+  font-style: normal;
+}
+
+.doz_sys h2 {
+  font-size: 3.214em;
+  line-height: 1.2;
+  font-style: normal;
+}
+
+.doz_sys h3 {
+  font-size: 2.571em;
+  line-height: 1.2;
+  font-style: normal;
+}
+
+.doz_sys h4 {
+  font-size: 2.143em;
+  line-height: 1.2;
+  font-style: normal;
+}
+
+/* Links */
+.doz_sys a,
+.doz_sys a:hover {
+  color: #fff;
+}
+
+/* Buttons */
+.btn {
+  border-color: rgba(255, 255, 255, 0.2);
+  background-color: #000;
+  border-radius: 30px;
+  letter-spacing: 1px;
+  color: #fff;
+  font-weight: normal;
+  font-style: normal;
+  padding: 10px 25px;
+  font-size: 12px;
+}
+
+.btn:hover,
+.visual_section a.btn:hover,
+a.select-star:hover {
+  border-color: #fff;
+}
+
+.btn.btn-default:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 0, 0, 1);
+}
+
+.btn.btn-primary {
+  background-color: rgba(238, 238, 238, 0);
+  border-color: rgba(0, 0, 0, 0.8);
+  color: #212121;
+  padding-left: 24px;
+  padding-right: 24px;
+  border-width: 1px;
+}
+
+.btn-primary:hover {
+  background-color: rgba(10, 102, 234, 1);
+  border-color: rgba(10, 102, 234, 1);
+  color: rgba(33, 33, 33, 0.7);
+}
+
+.btn.btn-brand,
+.doz_sys .btn-brand:hover {
+  background: #3182f6;
+  color: #fff;
+  border-color: #3182f6;
+}
+
+/* Layout */
+.doz_sys .widget {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.doz_sys .col-dz {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.doz_sys .doz_row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.doz_sys .doz_row:before,
+.doz_sys .doz_row:after {
+  content: "";
+  display: block;
+}
+
+.doz_sys .doz_row:after {
+  clear: both;
+}
+
+/* Forms */
+.doz_sys label {
+  font-weight: normal;
+  font-size: 1em;
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+}
+
+.doz_sys .form-widget .form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  border-color: #000000;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
+  border-width: 0;
+  border-bottom-width: 1px;
+  padding-left: 0;
+  padding-right: 0;
+  background: transparent;
+  background-color: transparent;
+}
+
+.form-control:focus,
+.control_box .form-control:focus,
+.modal_add_review .form-group .form-control:focus,
+.input-group.input-group-login .form-control:focus {
+  border-color: #3182f6;
+  box-shadow: none;
+}
+
+/* Media Queries */
+@media all and (max-width: 992px) {
+  html {
+    overflow-x: clip;
+  }
+}
+
+@media (max-width: 991px) {
+  .doz_sys .header-content h1 {
+    font-size: 3.214em;
+  }
+  input.form-control {
+    -webkit-appearance: none !important;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .col-dz {
+    display: block;
+  }
+  .doz_sys .header-content h1 {
+    font-size: 32px;
+  }
+  .doz_sys h2 {
+    font-size: 28px;
+  }
+  .doz_sys h3 {
+    font-size: 24px;
+  }
+  .doz_sys h4 {
+    font-size: 20px;
+    line-height: 1.5em;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 767px) {
+  body:not(.video_fullpage) {
+    zoom: 0.85;
+  }
+}
+
+/* Utility Classes */
+.bg-brand {
+  background: #000000 !important;
+  border: 0px solid #00d255 !important;
+  color: #ffffff !important;
+}
+
+.bg-brand:hover {
+  background: #262626 !important;
+  border: 0px solid #00d255 !important;
+  color: #ffffff !important;
+}
+
+strong {
+  font-weight: 600;
+}
+
+/* Hide empty images */
+img[src="data:,"],
+source[src="data:,"] {
+  display: none !important;
+}

@@ -16,6 +16,7 @@
         line-height: 1.6;
         color: #fff;
         background-color: #000;
+        padding-bottom: 80px; /* 플로팅 바 공간 확보 */
       }
 
       .container {
@@ -293,6 +294,206 @@
         font-weight: bold;
       }
 
+      /* Floating Bar Form */
+      .floating-contact-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, #0066ff, #4f8cff);
+        z-index: 1000;
+        transition: all 0.4s ease;
+        box-shadow: 0 -5px 20px rgba(0, 102, 255, 0.3);
+        height: 70px;
+        overflow: hidden;
+      }
+
+      .floating-contact-bar.expanded {
+        height: auto;
+        max-height: 500px;
+      }
+
+      .contact-bar-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 20px;
+        cursor: pointer;
+        height: 70px;
+      }
+
+      .contact-bar-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .contact-bar-title .icon {
+        font-size: 1.5rem;
+      }
+
+      .contact-bar-title h3 {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: white;
+        margin: 0;
+      }
+
+      .contact-bar-subtitle {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.8);
+        margin: 0;
+      }
+
+      .expand-btn {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        padding: 5px;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .expand-btn:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      .expand-btn.rotated {
+        transform: rotate(180deg);
+      }
+
+      .contact-form-container {
+        padding: 0 20px 20px 20px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .floating-contact-bar.expanded .contact-form-container {
+        opacity: 1;
+      }
+
+      .contact-form {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        align-items: end;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .form-label {
+        color: white;
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+        font-weight: 500;
+      }
+
+      .form-input {
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        background-color: rgba(255, 255, 255, 0.95);
+        color: #333;
+        transition: all 0.3s ease;
+      }
+
+      .form-input:focus {
+        outline: none;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        transform: translateY(-2px);
+      }
+
+      .form-select {
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        background-color: rgba(255, 255, 255, 0.95);
+        color: #333;
+        cursor: pointer;
+      }
+
+      .form-textarea {
+        grid-column: 1 / -1;
+        height: 80px;
+        resize: vertical;
+      }
+
+      .submit-btn {
+        background-color: white;
+        color: #0066ff;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        align-self: end;
+      }
+
+      .submit-btn:hover {
+        background-color: #f0f8ff;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+      }
+
+      .submit-btn:active {
+        transform: translateY(0);
+      }
+
+      /* Success Message */
+      .success-message {
+        background-color: #4CAF50;
+        color: white;
+        padding: 15px;
+        border-radius: 8px;
+        text-align: center;
+        margin-top: 15px;
+        display: none;
+        animation: slideDown 0.3s ease;
+      }
+
+      /* Pulse Animation */
+      .pulse {
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 -5px 20px rgba(0, 102, 255, 0.3);
+        }
+        50% {
+          box-shadow: 0 -10px 30px rgba(0, 102, 255, 0.6);
+        }
+        100% {
+          box-shadow: 0 -5px 20px rgba(0, 102, 255, 0.3);
+        }
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
       /* Responsive Design */
       @media (max-width: 768px) {
         .hero-content h1 {
@@ -309,6 +510,18 @@
 
         .faq-grid {
           grid-template-columns: 1fr;
+        }
+
+        .contact-form {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-bar-header {
+          padding: 12px 15px;
+        }
+
+        .contact-form-container {
+          padding: 0 15px 15px 15px;
         }
       }
 
@@ -517,7 +730,123 @@
       </div>
     </section>
 
+    <!-- Floating Contact Bar -->
+    <div class="floating-contact-bar pulse" id="floatingContactBar">
+      <div class="contact-bar-header" onclick="toggleContactBar()">
+        <div class="contact-bar-title">
+          <span class="icon">💬</span>
+          <div>
+            <h3>무료 상담 및 문의</h3>
+            <p class="contact-bar-subtitle">전문가와 1:1 상담을 받아보세요</p>
+          </div>
+        </div>
+        <button class="expand-btn" id="expandBtn">▲</button>
+      </div>
+      
+      <div class="contact-form-container">
+        <form class="contact-form" id="contactForm" onsubmit="submitContactForm(event)">
+          <div class="form-group">
+            <label class="form-label">이름</label>
+            <input type="text" class="form-input" name="name" required>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">연락처</label>
+            <input type="tel" class="form-input" name="phone" required>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">관심 서비스</label>
+            <select class="form-input form-select" name="service" required>
+              <option value="">선택해주세요</option>
+              <option value="basic">기본 서비스 (1.5%)</option>
+              <option value="premium">프리미엄 서비스 (0.5%)</option>
+              <option value="consultation">상담 문의</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">투자 경험</label>
+            <select class="form-input form-select" name="experience">
+              <option value="">선택해주세요</option>
+              <option value="beginner">초보자</option>
+              <option value="intermediate">중급자</option>
+              <option value="advanced">고급자</option>
+            </select>
+          </div>
+          
+          <button type="submit" class="submit-btn">무료 상담 신청</button>
+          
+          <div class="form-group form-textarea">
+            <label class="form-label">문의사항 (선택)</label>
+            <textarea class="form-input form-textarea" name="message" placeholder="궁금한 점이나 상담받고 싶은 내용을 자유롭게 적어주세요"></textarea>
+          </div>
+        </form>
+        
+        <div class="success-message" id="successMessage">
+          상담 신청이 완료되었습니다!<br>
+          영업일 기준 24시간 이내에 연락드리겠습니다.
+        </div>
+      </div>
+    </div>
+
     <script>
+      // Floating Contact Bar Toggle
+      function toggleContactBar() {
+        const contactBar = document.getElementById('floatingContactBar');
+        const expandBtn = document.getElementById('expandBtn');
+        
+        contactBar.classList.toggle('expanded');
+        expandBtn.classList.toggle('rotated');
+        
+        // Remove pulse animation after first interaction
+        contactBar.classList.remove('pulse');
+      }
+
+      // Form Submission
+      function submitContactForm(event) {
+        event.preventDefault();
+        
+        const form = document.getElementById('contactForm');
+        const successMessage = document.getElementById('successMessage');
+        
+        // Simple form validation
+        const formData = new FormData(form);
+        const name = formData.get('name');
+        const phone = formData.get('phone');
+        const service = formData.get('service');
+        
+        if (!name || !phone || !service) {
+          alert('필수 항목을 모두 입력해주세요.');
+          return;
+        }
+        
+        // Show success message
+        form.style.display = 'none';
+        successMessage.style.display = 'block';
+        
+        // Reset form after 4 seconds
+        setTimeout(() => {
+          form.style.display = 'grid';
+          successMessage.style.display = 'none';
+          form.reset();
+        }, 4000);
+        
+        // In real implementation, send data to server
+        console.log('Contact form data:', Object.fromEntries(formData));
+      }
+
+      // Auto-expand contact bar after page load
+      window.addEventListener('load', function() {
+        setTimeout(() => {
+          const contactBar = document.getElementById('floatingContactBar');
+          // Add extra attention after 3 seconds
+          setTimeout(() => {
+            contactBar.style.animation = 'pulse 2s infinite';
+          }, 3000);
+        }, 1000);
+      });
+
       // Smooth scrolling for anchor links
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {

@@ -309,49 +309,61 @@
         max-height: 500px;
       }
 
+      /* Contact Bar Header - 텍스트 중앙 정렬 및 크기 조정 */
       .contact-bar-header {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center; /* space-between에서 center로 변경 */
         padding: 15px 20px;
         cursor: pointer;
         height: 70px;
+        position: relative; /* 확장 버튼 절대 위치를 위해 추가 */
       }
 
       .contact-bar-title {
         display: flex;
         align-items: center;
-        gap: 10px;
+        justify-content: center; /* 중앙 정렬 */
+        gap: 12px;
+        text-align: center; /* 텍스트 중앙 정렬 */
+        flex: 1; /* 전체 공간 사용 */
       }
 
       .contact-bar-title .icon {
-        font-size: 1.5rem;
+        font-size: 1.3rem; /* 1.5rem에서 1.3rem로 축소 */
       }
 
       .contact-bar-title h3 {
-        font-size: 1.2rem;
-        font-weight: bold;
+        font-size: 1.1rem; /* 1.2rem에서 1.1rem로 축소 */
+        font-weight: 600;
         color: white;
         margin: 0;
+        line-height: 1.2;
       }
 
       .contact-bar-subtitle {
-        font-size: 0.9rem;
-        color: rgba(255, 255, 255, 0.8);
-        margin: 0;
+        font-size: 0.85rem; /* 0.9rem에서 0.85rem로 축소 */
+        color: rgba(255, 255, 255, 0.85);
+        margin: 2px 0 0 0;
+        line-height: 1.1;
       }
 
+      /* 확장 버튼을 우측 상단 고정 */
       .expand-btn {
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
         background: none;
         border: none;
         color: white;
-        font-size: 1.5rem;
+        font-size: 1.3rem; /* 1.5rem에서 1.3rem로 축소 */
         cursor: pointer;
         transition: transform 0.3s ease;
-        padding: 5px;
+        padding: 8px;
         border-radius: 50%;
-        width: 40px;
-        height: 40px;
+        width: 36px; /* 40px에서 36px로 축소 */
+        height: 36px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -523,18 +535,27 @@
           grid-template-columns: 1fr;
         }
 
+        .contact-bar-title h3 {
+          font-size: 1rem;
+        }
+
+        .contact-bar-subtitle {
+          font-size: 0.8rem;
+        }
+
+        .contact-bar-title .icon {
+          font-size: 1.2rem;
+        }
+
+        .expand-btn {
+          font-size: 1.2rem;
+          width: 32px;
+          height: 32px;
+          right: 15px;
+        }
+
         .contact-bar-header {
           padding: 12px 15px;
-        }
-
-        .contact-form-container {
-          padding: 0 15px 15px 15px;
-        }
-
-        .floating-contact-bar {
-          bottom: 15px;
-          left: 15px;
-          right: 15px;
         }
       }
     </style>

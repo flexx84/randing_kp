@@ -10,7 +10,7 @@
         line-height: 1.6;
         color: #fff;
         background-color: #000;
-        padding-bottom: 80px; /* 플로팅 바 공간 확보 */
+        padding-bottom: 120px; /* 80px에서 120px로 증가 */
       }
 
       .container {
@@ -292,15 +292,16 @@
       /* Floating Bar Form */
       .floating-contact-bar {
         position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
+        bottom: 20px; /* 0에서 20px로 변경 */
+        left: 20px; /* 좌우 여백 추가 */
+        right: 20px; /* 좌우 여백 추가 */
         background: linear-gradient(135deg, #0066ff, #4f8cff);
         z-index: 1000;
         transition: all 0.4s ease;
         box-shadow: 0 -5px 20px rgba(0, 102, 255, 0.3);
         height: 70px;
         overflow: hidden;
+        border-radius: 15px; /* 모서리 둥글게 추가 */
       }
 
       .floating-contact-bar.expanded {
@@ -528,6 +529,12 @@
 
         .contact-form-container {
           padding: 0 15px 15px 15px;
+        }
+
+        .floating-contact-bar {
+          bottom: 15px;
+          left: 15px;
+          right: 15px;
         }
       }
     </style>

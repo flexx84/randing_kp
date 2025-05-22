@@ -257,17 +257,36 @@
         padding: 25px;
         border-radius: 10px;
         border-left: 4px solid #0066ff;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .faq-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 102, 255, 0.2);
+        background: #222;
+        border-left-width: 6px;
+      }
+
+      .faq-item:hover .faq-question {
+        color: #4f8cff;
       }
 
       .faq-question {
         font-weight: bold;
         color: #0066ff;
         margin-bottom: 10px;
+        transition: color 0.3s ease;
       }
 
       .faq-answer {
         line-height: 1.6;
         opacity: 0.8;
+        transition: opacity 0.3s ease;
+      }
+
+      .faq-item:hover .faq-answer {
+        opacity: 1;
       }
 
       /* Final CTA Section */

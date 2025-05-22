@@ -262,7 +262,7 @@
       }
 
       .faq-item:hover {
-        transform: scale(1.02);
+        transform: translateY(-5px);
         box-shadow: 0 10px 20px rgba(0, 102, 255, 0.2);
         background: #222;
         border-left-width: 6px;
@@ -340,16 +340,16 @@
       /* Floating Bar Form */
       .floating-contact-bar {
         position: fixed;
-        bottom: 20px; /* 0에서 20px로 변경 */
-        left: 20px; /* 좌우 여백 추가 */
-        right: 20px; /* 좌우 여백 추가 */
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
         background: linear-gradient(135deg, #0066ff, #4f8cff);
         z-index: 1000;
         transition: all 0.4s ease;
         box-shadow: 0 -5px 20px rgba(0, 102, 255, 0.3);
         height: 70px;
         overflow: hidden;
-        border-radius: 15px; /* 모서리 둥글게 추가 */
+        border-radius: 15px;
       }
 
       .floating-contact-bar.expanded {
@@ -426,7 +426,7 @@
       }
 
       .contact-form-container {
-        padding: 0 20px 20px 20px;
+        padding: 10px 20px 20px 20px;
         opacity: 0;
         transition: opacity 0.3s ease;
       }
@@ -583,27 +583,154 @@
           grid-template-columns: 1fr;
         }
 
-        .contact-bar-title h3 {
-          font-size: 1rem;
-        }
-
-        .contact-bar-subtitle {
-          font-size: 0.8rem;
-        }
-
-        .contact-bar-title .icon {
-          font-size: 1.2rem;
-        }
-
-        .expand-btn {
-          font-size: 1.2rem;
-          width: 32px;
-          height: 32px;
-          right: 15px;
+        /* 모바일 플로팅 배너 스타일 */
+        .floating-contact-bar {
+          bottom: 10px;
+          left: 10px;
+          right: 10px;
+          max-height: 80vh;
         }
 
         .contact-bar-header {
-          padding: 0px 15px;
+          padding: 10px 15px;
+          height: 60px;
+        }
+
+        .contact-bar-title h3 {
+          font-size: 0.95rem;
+        }
+
+        .contact-bar-subtitle {
+          font-size: 0.75rem;
+        }
+
+        .contact-bar-title .icon {
+          font-size: 1.1rem;
+        }
+
+        .expand-btn {
+          font-size: 1.1rem;
+          width: 30px;
+          height: 30px;
+          right: 12px;
+        }
+
+        .contact-form-container {
+          padding: 5px 15px 15px 15px;
+          max-height: calc(70vh - 70px);
+          overflow-y: auto;
+        }
+
+        .form-input,
+        .form-select {
+          font-size: 0.9rem;
+          padding: 10px;
+        }
+
+        .submit-btn {
+          font-size: 0.95rem;
+          padding: 10px 20px;
+        }
+
+        .success-message {
+          font-size: 0.9rem;
+          padding: 12px;
+        }
+      }
+
+      /* 아주 작은 화면 (iPhone SE 등) */
+      @media (max-width: 480px) {
+        .floating-contact-bar.expanded {
+          bottom: 10px;
+          max-height: 75vh;
+        }
+
+        .contact-form-container {
+          max-height: calc(75vh - 70px);
+        }
+      }
+
+      /* 가로 모드일 때 */
+      @media (max-width: 768px) and (orientation: landscape) {
+        .floating-contact-bar.expanded {
+          max-height: 60vh;
+        }
+
+        .contact-form-container {
+          max-height: calc(60vh - 70px);
+        }
+      }
+
+      /* iOS Safari에서 키보드 대응 */
+      @supports (-webkit-touch-callout: none) {
+        @media (max-width: 768px) {
+          .floating-contact-bar.expanded {
+            position: fixed;
+            bottom: env(safe-area-inset-bottom, 10px);
+          }
+        }
+      }
+
+      /* Scroll to Top Button */
+      .scroll-to-top {
+        position: fixed;
+        bottom: 120px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(45deg, #0066ff, #4f8cff);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1.5rem;
+        font-weight: bold;
+        box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+        transition: all 0.3s ease;
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .scroll-to-top.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .scroll-to-top:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 102, 255, 0.4);
+        background: linear-gradient(45deg, #0052cc, #3d7ae6);
+      }
+
+      .scroll-to-top:active {
+        transform: translateY(-1px);
+      }
+
+      /* 모바일 최적화 */
+      @media (max-width: 768px) {
+        .scroll-to-top {
+          bottom: 110px;
+          right: 15px;
+          width: 45px;
+          height: 45px;
+          font-size: 1.3rem;
+        }
+      }
+
+      /* 플로팅 배너가 펼쳐졌을 때 위치 조정 */
+      .floating-contact-bar.expanded ~ .scroll-to-top {
+        bottom: 200px;
+      }
+
+      @media (max-width: 768px) {
+        .floating-contact-bar.expanded ~ .scroll-to-top {
+          bottom: 180px;
         }
       }
     </style>
@@ -714,8 +841,8 @@
             <div class="faq-question">킴치프리미엄이란 무엇인가요?</div>
             <div class="faq-answer">
               국내외 디지털 자산 거래소 간의 시세 차이를 활용하여 수익을
-              창출하는 서비스입니다. 자동화된 시스템으로 최적의 거래 타이밍을
-              포착합니다.
+              창출하는 서비스<br />입니다. 자동화된 시스템으로 최적의 거래
+              타이밍을 포착합니다.
             </div>
           </div>
 
@@ -864,6 +991,16 @@
       </div>
     </div>
 
+    <!-- Scroll to Top Button -->
+    <button
+      class="scroll-to-top"
+      id="scrollToTop"
+      onclick="scrollToTop()"
+      aria-label="맨 위로 이동"
+    >
+      <span>↑</span>
+    </button>
+
     <script>
       // Floating Contact Bar Toggle
       function toggleContactBar() {
@@ -975,6 +1112,25 @@
             this.style.transform = "translateY(-5px)";
           }, 150);
         });
+      });
+
+      // Scroll to Top 기능
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+
+      // 스크롤 위치에 따라 버튼 표시/숨김
+      window.addEventListener("scroll", function () {
+        const scrollToTopBtn = document.getElementById("scrollToTop");
+
+        if (window.pageYOffset > 300) {
+          scrollToTopBtn.classList.add("show");
+        } else {
+          scrollToTopBtn.classList.remove("show");
+        }
       });
     </script>
   </body>
